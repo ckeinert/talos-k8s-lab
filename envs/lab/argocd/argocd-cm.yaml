@@ -4,4 +4,3 @@ metadata:
   name: argocd-cm
 data:
   kustomize.buildOptions: "--load-restrictor LoadRestrictionsNone --enable-helm"
-  url: https://argocd.clearing-service.de
