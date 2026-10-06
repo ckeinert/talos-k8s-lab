@@ -1851,9 +1851,9 @@ redis:
 
   serviceAccount:
     # -- Create a service account for the redis pod
-    create: false
+    create: true
     # -- Service account name for redis pod
-    name: ""
+    name: "argocd-redis"
     # -- Annotations applied to created service account
     annotations: {}
     # -- Automount API credentials for the Service Account
@@ -2109,7 +2109,7 @@ redisSecretInit:
     # -- Create a service account for the redis pod
     create: true
     # -- Service account name for redis pod
-    name: ""
+    name: "argocd-redis-secret-init"
     # -- Annotations applied to created service account
     annotations: {}
     # -- Automount API credentials for the Service Account
