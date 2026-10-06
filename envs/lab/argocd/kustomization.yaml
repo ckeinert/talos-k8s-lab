@@ -3,9 +3,9 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - ../../base/argocd
+  - ../../../base/argocd
   - applicationset-lab.yaml
 
 patchesStrategicMerge:
-  - miscs/argocd-cm.yaml
-  - miscs/argocd-cmd-params-cm.yaml
+  - argocd-cm.yaml
+  - argocd-cmd-params-cm.yaml
