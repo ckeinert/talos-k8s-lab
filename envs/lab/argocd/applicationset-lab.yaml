@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: lab-apps
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: "https://github.com/ckeinert/talos-k8s-lab"
+        revision: main
+        directories:
+          - path: envs/lab/*
+
+  template:
+    metadata:
+      name: '{{path.basename}}-lab'
+    spec:
+      project: lab
+      
+      source:
+        repoURL: "https://github.com/ckeinert/talos-k8s-lab"
+        targetRevision: main
+        path: '{{path}}'
+        kustomize: {}
+
+      destination:
+        server: https://kubernetes.default.svc
